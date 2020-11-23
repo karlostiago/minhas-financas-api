@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -41,6 +43,13 @@ public class Usuario implements Serializable {
 	@Column(name = "senha", nullable = false)
 	@JsonIgnore
 	private String senha;
+	
+	@PreUpdate
+	@PrePersist
+	public void preInsertUpdate() {
+		setNome(nome.toUpperCase());
+		setEmail(email.toUpperCase());
+	}
 	
 	public Usuario(Long id) {
 		setId(id);

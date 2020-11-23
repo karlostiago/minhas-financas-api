@@ -25,6 +25,7 @@ import com.ctsousa.minhasfinancas.model.enumeration.StatusLancamento;
 import com.ctsousa.minhasfinancas.model.enumeration.TipoLancamento;
 import com.ctsousa.minhasfinancas.service.LancamentoService;
 import com.ctsousa.minhasfinancas.service.UsuarioService;
+import com.ctsousa.minhasfinancas.util.StringUtils;
 
 import lombok.RequiredArgsConstructor;
 
@@ -179,7 +180,7 @@ public class LancamentoResource implements Serializable {
 			lancamento.setTipo(TipoLancamento.valueOf(lancamentoDTO.getTipo()));
 		}
 		
-		lancamento.setValor(lancamentoDTO.getValor());
+		lancamento.setValor(StringUtils.parse(lancamentoDTO.getValor()));
 		return lancamento;
 	}
 }

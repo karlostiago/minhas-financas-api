@@ -15,6 +15,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
 import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
@@ -70,4 +72,10 @@ public class Lancamento implements Serializable {
 	@Column(name = "status", nullable = false)
 	@Enumerated(EnumType.STRING)
 	private StatusLancamento status;
+	
+	@PrePersist
+	@PreUpdate
+	public void preInsertUpdate() {
+		setDescricao(descricao.toUpperCase());
+	}
 }

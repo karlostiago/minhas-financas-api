@@ -1,7 +1,5 @@
 package com.ctsousa.minhasfinancas.dto;
 
-import java.math.BigDecimal;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,7 +11,7 @@ public class LancamentoDTO {
 	private String descricao;
 	private Integer mes;
 	private Integer ano;
-	private BigDecimal valor;
+	private String valor;
 	private Long usuario;
 	private String tipo;
 	private String status;

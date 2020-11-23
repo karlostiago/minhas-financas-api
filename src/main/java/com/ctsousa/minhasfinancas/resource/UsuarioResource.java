@@ -37,7 +37,7 @@ public class UsuarioResource implements Serializable {
 	public ResponseEntity<?> autenticar(@RequestBody UsuarioDTO usuarioDTO) {
 		
 		try {
-			Usuario usuario = usuarioService.autenticar(usuarioDTO.getEmail(), usuarioDTO.getSenha());
+			Usuario usuario = usuarioService.autenticar(usuarioDTO.getEmail().toUpperCase(), usuarioDTO.getSenha());
 			return ResponseEntity.ok(usuario);
 		}
 		catch(AutenticarException e) {

@@ -33,7 +33,7 @@ public class LancamentoDTOBuilder {
 	}
 	
 	public LancamentoDTOBuilder comValor(BigDecimal valor) {
-		instance.setValor(valor);
+		instance.setValor(valor.toString());
 		return this;
 	}
 	
